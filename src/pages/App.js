@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import { Home, About } from '../pages'
+import { Home} from '../pages'
 
 // catalog for all routings
 const App = (props) => {
@@ -9,7 +9,6 @@ const App = (props) => {
     <div>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
       </Switch>
     </div>
   )

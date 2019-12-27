@@ -1,0 +1,17 @@
+@import "../../../utils/sass/variables";
+
+@media screen and (min-width: $large-breakpoint) {
+  .base-to-do-wrapper {
+    width: 60%;
+  }
+}
+
+@media (max-width: $small-breakpoint) {
+  .base-to-do-wrapper {
+    width: 100%;
+  }
+}
+
+.base-to-do-wrapper {
+  background-color: #d18699;
+}
