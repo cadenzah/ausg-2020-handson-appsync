@@ -1,0 +1,29 @@
+div {
+  &.simple-counter {
+    display: inline-block;
+    background-color: #a5be00;
+    width: 6rem;
+  }
+}
+
+.simple-counter {
+  & p {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #6a6a6a !important;
+  }
+}
+
+.simple-counter-button-wrapper {
+  width: 5rem;
+  margin: 0 auto;
+
+  & button {
+    border: none;
+    background-color: #ffffff;
+    width: 2rem;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+}
