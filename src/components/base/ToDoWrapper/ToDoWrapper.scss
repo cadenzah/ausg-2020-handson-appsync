@@ -13,5 +13,7 @@
 }
 
 .base-to-do-wrapper {
-  background-color: #d18699;
+  background-color: $color-paper;
+  box-shadow: 5px 5px 5px 0 $color-box-shadow;
+  padding: 5px;
 }

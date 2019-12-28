@@ -12,7 +12,7 @@ const ToDoItem = (props) => {
       <div className="common-to-do-item-desc">
         <span>{props.item.desc}</span>
       </div>
-      <Button buttonStyle="caution">제거</Button>
+      <Button buttonStyle="caution">Delete</Button>
     </div>
   )
 }

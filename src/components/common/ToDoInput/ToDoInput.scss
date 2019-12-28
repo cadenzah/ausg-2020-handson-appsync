@@ -1,9 +1,14 @@
 @import "../../../scss/_variables.scss";
 
 .common-to-do-input {
-  height: 30px;
+  display: flex;
+  height: $item-height;
+  margin: {
+    bottom: 15px;
+  }
 
   input {
+    display: block;
     width: calc(100% - #{$button-width} - 5px);
     height: 100%;
     border: 0;
@@ -12,6 +17,9 @@
       right: 0;
       top: 0;
       bottom: 0;
+    }
+    font: {
+      size: $todo-input-size;
     }
 
     &:focus {

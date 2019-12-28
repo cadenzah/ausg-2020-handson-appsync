@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 
 import PageWrapper from '../components/common/PageWrapper'
 import ToDoWrapper from '../components/base/ToDoWrapper'
+import Title from '../components/common/Title'
 import ToDoInput from '../components/common/ToDoInput'
 import ToDoList from '../components/common/ToDoList'
 
@@ -13,7 +14,7 @@ const MainContainer = (props) => {
   return (
     <PageWrapper>
       <ToDoWrapper>
-        <h3>ToDoList</h3>
+        <Title>ToDoList</Title>
         <ToDoInput />
         <ToDoList />
           {/* 각 항목 별로 map */}

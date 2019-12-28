@@ -1,25 +1,23 @@
 @import "../../../scss/_variables.scss";
 
-$item-checkbox-size: 30px;
-
 .common-to-do-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: $item-checkbox-size;
+  height: $item-height;
 
   & .common-to-do-item-checkbox {
-    width: $item-checkbox-size;
-    height: $item-checkbox-size;
+    width: $item-checkbox-div-width;
+    height: $item-height;
   }
 
   input {
     position: relative;
-    top: calc(#{$item-checkbox-size} / 4);
-    left: calc(#{$item-checkbox-size} / 4);
+    top: calc((#{$item-height} - #{$item-checkbox-size}) / 2);
+    left: calc((#{$item-checkbox-div-width} - #{$item-checkbox-size}) / 2);
     display: inline-block;
-    width: 15px;
-    height: 15px;
+    width: $item-checkbox-size;
+    height: $item-checkbox-size;
     margin: 0;
     background-color: #e3af70;
   }
@@ -28,13 +26,15 @@ $item-checkbox-size: 30px;
     display: inline-block;
     width: calc(100% - #{$button-width} - #{$item-checkbox-size});
     height: 100%;
-    background-color: #7c3785;
 
     span {
       position: relative;
-      top: calc(#{$item-checkbox-size} / 4 + 0.7px);
+      top: calc((#{$item-height} - #{$item-checkbox-size}) / 2);
       padding: {
         left: 5px;
+      }
+      font: {
+        size: $todo-item-size;
       }
     }
   }

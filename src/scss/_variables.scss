@@ -1,3 +1,25 @@
 $large-breakpoint: 769px;
 $small-breakpoint: 768px;
-$button-width: 50px;
+
+// Button.scss
+$button-width: 70px;
+
+// size of input form and each todos
+$item-height: 60px;
+
+// ToDoItem.scss specific
+$item-checkbox-div-width: 30px;
+$item-checkbox-size: 15px;
+
+// color presets
+$color-primary: #7E7E7E;
+$color-default: #595959;
+$color-caution: #c94b68;
+$color-paper: rgb(242, 242, 242);
+$color-font: #2F2F2F;
+$color-placeholder: #898989;
+$color-box-shadow: #c1c1c1;
+
+// font size presets
+$todo-input-size: 1.2rem;
+$todo-item-size: 1.2rem;

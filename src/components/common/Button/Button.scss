@@ -1,17 +1,30 @@
 @import "../../../scss/_variables.scss";
 
+$hover-effect: 10%;
+
 .common-button {
+  display: block;
   width: $button-width;
   height: 100%;
   border: 0;
-  background-color: #588199;
+  background-color: $color-default;
+  outline: none;
   padding: 0;
+  transition: all 0.2s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
 
   &.primary {
-    background-color: #32be77;
+    background-color: $color-primary;
+  }
+  &.primary:hover {
+    background-color: darken($color-primary, $hover-effect);
   }
 
   &.caution {
-    background-color: #872345;
+    background-color: $color-caution;
+  }
+  &.caution:hover {
+    background-color: darken($color-caution, $hover-effect);
   }
 }

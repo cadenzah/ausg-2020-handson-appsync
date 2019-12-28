@@ -1,3 +1,16 @@
+@import "./scss/variables";
+
+* {
+  font-weight: 200;
+  color: $color-font;
+}
+  
+input::-webkit-input-placeholder { font-weight: 200; color: $color-placeholder }
+input::-moz-placeholder { font-weight: 200; color: $color-placeholder }
+input:-ms-input-placeholder { font-weight: 200; color: $color-placeholder }
+input:-moz-placeholder { font-weight: 200; color: $color-placeholder }
+input::placeholder { font-weight: 200; color: $color-placeholder }
+
 body {
   margin: 0px;
 }
