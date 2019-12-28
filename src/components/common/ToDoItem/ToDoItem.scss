@@ -5,6 +5,10 @@
   align-items: center;
   justify-content: center;
   height: $item-height;
+  padding: {
+    top: 2.5px;
+    bottom: 2.5px;
+  }
 
   & .common-to-do-item-checkbox {
     width: $item-checkbox-div-width;
@@ -36,6 +40,12 @@
       font: {
         size: $todo-item-size;
       }
+    }
+  }
+
+  &.done {
+    .common-to-do-item-desc {
+      text-decoration: line-through;
     }
   }
 }

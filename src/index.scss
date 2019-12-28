@@ -12,5 +12,10 @@ input:-moz-placeholder { font-weight: 200; color: $color-placeholder }
 input::placeholder { font-weight: 200; color: $color-placeholder }
 
 body {
-  margin: 0px;
+  margin: {
+    top: 5px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }

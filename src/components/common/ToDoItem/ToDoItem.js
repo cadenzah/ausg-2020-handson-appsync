@@ -5,9 +5,16 @@ import Button from '../Button'
 
 const ToDoItem = (props) => {
   return (
-    <div className="common-to-do-item">
+    <div className={props.item.status === 'PENDING'
+      ? `common-to-do-item`
+      : `common-to-do-item done`
+    }>
       <div className="common-to-do-item-checkbox">
-        <input type="checkbox" value={props.item.id} />
+        <input
+          type="checkbox"
+          value={props.item.id}
+          checked={props.item.status === 'DONE' ? "checked" : ""}
+        />
       </div>
       <div className="common-to-do-item-desc">
         <span>{props.item.desc}</span>
