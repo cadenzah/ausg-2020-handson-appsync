@@ -1,0 +1,30 @@
+$button-width: 50px;
+
+.common-to-do-input {
+  height: 30px;
+
+  input {
+    width: calc(100% - #{$button-width});
+    height: 100%;
+    border: 0;
+    padding: {
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+    }
+  }
+
+  button {
+    width: $button-width;
+    height: 100%;
+    border: 0;
+    background-color: #588199;
+    padding: {
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+    }
+  }
+}
