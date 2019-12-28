@@ -1,11 +1,15 @@
 import React from 'react'
 import './ToDoInput.scss'
 
+import Button from '../Button'
+
 const ToDoInput = (props) => {
   return (
     <div className="common-to-do-input">
       <input />
-      <button>Add</button>
+      <Button buttonStyle="primary">
+        Add
+      </Button>
     </div>
   )
 }

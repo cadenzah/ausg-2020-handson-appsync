@@ -1,30 +1,21 @@
-$button-width: 50px;
+@import "../../../scss/_variables.scss";
 
 .common-to-do-input {
   height: 30px;
 
   input {
-    width: calc(100% - #{$button-width});
+    width: calc(100% - #{$button-width} - 5px);
     height: 100%;
     border: 0;
     padding: {
-      top: 0px;
-      left: 0px;
-      right: 0px;
-      bottom: 0px;
+      left: 5px;
+      right: 0;
+      top: 0;
+      bottom: 0;
     }
-  }
 
-  button {
-    width: $button-width;
-    height: 100%;
-    border: 0;
-    background-color: #588199;
-    padding: {
-      top: 0px;
-      left: 0px;
-      right: 0px;
-      bottom: 0px;
+    &:focus {
+      outline: none;
     }
   }
 }
