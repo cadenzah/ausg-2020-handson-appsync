@@ -10,11 +10,15 @@ const ToDoItem = (props) => {
       : `common-to-do-item done`
     }>
       <div className="common-to-do-item-checkbox">
-        <input
-          type="checkbox"
-          value={props.item.id}
-          checked={props.item.status === 'DONE' ? "checked" : ""}
-        />
+        <label htmlFor="to-do-checkbox">
+          <input
+            id="to-do-checkbox"
+            type="checkbox"
+            value={props.item.id}
+            checked={props.item.status === 'DONE' ? "checked" : ""}
+          />
+          <span />
+        </label>
       </div>
       <div className="common-to-do-item-desc">
         <span>{props.item.desc}</span>
