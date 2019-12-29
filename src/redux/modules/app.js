@@ -1,11 +1,18 @@
 import { createAction, handleActions } from 'redux-actions'
 
 // #################### ACTION TYPES ###################
+// action for keyboard action
 const CHANGE_INPUT = 'app/CHANGE_INPUT'
-const GET_TODOLIST = 'app/GET_TODOLIST'
+
+// actions for DB apis
 const CREATE_TODO = 'app/CREATE_TODO'
 const UPDATE_TODO = 'app/UPDATE_TODO'
 const DELETE_TODO = 'app/DELETE_TODO'
+
+// actions for app's status
+const GET_TODOLIST_REQUEST = 'app/GET_TODOLIST_REQUEST'
+const GET_TODOLIST_SUCCESS = 'app/GET_TODOLIST_SUCCESS'
+const GET_TODOLIST_FAILURE = 'app/GET_TODOLIST_FAILURE'
 
 // ############ ACTION GENERATOR FUNCTIONS #############
 // ## NAMES WILL BE RE-USED WITH `bindActionCreators` ##
@@ -15,7 +22,8 @@ export const changeInput = createAction(CHANGE_INPUT, payload => ({ key: payload
 
 // ######## DEFAULT STATE FOR THIS SLICE STATE #########
 const initialState = {
-  taskDesc: '',
+  todoDesc: '',
+  todoList: [],
 }
 
 // ########### REDUCER FOR THIS SLICE STATE ############

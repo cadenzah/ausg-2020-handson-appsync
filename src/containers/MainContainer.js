@@ -25,7 +25,7 @@ const MainContainer = (props) => {
         <Title>ToDoList</Title>
         <ToDoInput
           handleChangeInput={handleChangeInput}
-          taskDesc={props.taskDesc}
+          todoDesc={props.todoDesc}
         />
         <ToDoList />
       </ToDoWrapper>
@@ -34,7 +34,7 @@ const MainContainer = (props) => {
 }
 
 const mapStateToProps = ({ app }) => ({
-  taskDesc: app.taskDesc,
+  todoDesc: app.todoDesc,
 })
 
 const mapDispatchToProps = (dispatch) => ({
