@@ -6,11 +6,16 @@ import todos from '../../../utils/tasks'
 import ToDoItem from '../ToDoItem'
 
 const ToDoList = (props) => {
+  const { todoList } = props
   
   // first, sort tasks to be displayed
+  if (todoList.length === 0) {
+    return (<div>로딩!</div>)
+  }
+
   const todosInOrder = [
-    ...todos.filter(todo => todo.status !== 'DONE'),
-    ...todos.filter(todo => todo.status === 'DONE'),
+    ...todoList.filter(todo => todo.status !== 'DONE'),
+    ...todoList.filter(todo => todo.status === 'DONE'),
   ]
 
   return (
