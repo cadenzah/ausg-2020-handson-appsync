@@ -17,8 +17,6 @@ const MainContainer = (props) => {
         <Title>ToDoList</Title>
         <ToDoInput />
         <ToDoList />
-          {/* 각 항목 별로 map */}
-          {/* 내용 - 체크 버튼 - 삭제 버튼 */}
       </ToDoWrapper>
     </PageWrapper>
   )

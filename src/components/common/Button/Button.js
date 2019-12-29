@@ -3,12 +3,12 @@ import './Button.scss'
 
 const Button = (props) => {
   return (
-    <button className={
+    <div className={
       props.buttonStyle === 'primary' ? `common-button primary` :
       props.buttonStyle === 'caution' ? `common-button caution` :
       `common-button`}>
-      {props.children}
-    </button>
+      <p>{props.children}</p>
+    </div>
   )
 }
 

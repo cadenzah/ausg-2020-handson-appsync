@@ -13,6 +13,16 @@ $hover-effect: 10%;
   transition: all 0.2s;
   transition-timing-function: ease-in-out;
   cursor: pointer;
+  text-align: center;
+
+  p {
+    position: relative;
+    top: calc((#{$item-height} - #{$todo-button-size}) / 2);
+    margin: 0;
+    font: {
+      size: $todo-button-size;
+    }
+  }
 
   &.primary {
     background-color: $color-primary;
