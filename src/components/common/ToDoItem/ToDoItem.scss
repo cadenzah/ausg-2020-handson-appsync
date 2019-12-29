@@ -13,17 +13,76 @@
   & .common-to-do-item-checkbox {
     width: $item-checkbox-div-width;
     height: $item-height;
-  }
 
-  input {
-    position: relative;
-    top: calc((#{$item-height} - #{$item-checkbox-size}) / 2);
-    left: calc((#{$item-checkbox-div-width} - #{$item-checkbox-size}) / 2);
-    display: inline-block;
-    width: $item-checkbox-size;
-    height: $item-checkbox-size;
-    margin: 0;
-    background-color: #e3af70;
+    // checkbox styles
+    input {
+      &[id="to-do-checkbox"] {
+        display: none;
+      }
+
+      // &[id="to-do-checkbox"] + label {
+      //   display: inline-block;
+      //   position: relative;
+      //   top: calc((#{$item-height} - #{$item-checkbox-size}) / 2);
+      //   left: calc((#{$item-checkbox-div-width} - #{$item-checkbox-size}) / 2);
+      //   width: $item-checkbox-size;
+      //   height: $item-checkbox-size;
+      //   margin: 0;
+
+      //   border: 1px solid $color-primary;
+      //   background-color: $color-paper;
+      //   cursor: pointer;
+      // }
+
+      // &[id="to-do-checkbox"]:checked + label {
+      //   border: 1px solid $color-primary;
+      //   background-color: $color-primary;
+      //   cursor: pointer;
+      //   color: $color-paper;
+      // }
+    }
+
+    // checkbox and check mark style
+    & span {
+      display: inline-block;
+      position: relative;
+      top: calc((#{$item-height} - #{$item-checkbox-size}) / 2);
+      left: calc((#{$item-checkbox-div-width} - #{$item-checkbox-size}) / 2);
+      width: $item-checkbox-size;
+      height: $item-checkbox-size;
+      margin: 0;
+
+      border: 1px solid $color-primary;
+      background-color: $color-paper;
+      cursor: pointer;
+    }
+
+    & input:checked ~ span {
+      border: 1px solid $color-primary;
+      background-color: $color-primary;
+      cursor: pointer;
+      color: $color-paper;
+    }
+
+    & span:after {
+      content: "";
+      position: absolute;
+      display: none;
+
+      left: calc((#{$item-checkbox-div-width} - #{$item-checkbox-size}) / 4 + 1px);
+      width: $item-checkmark-width;
+      height: $item-checkmark-height;
+      border: solid white;
+      border-width: 0 $item-checkmark-border $item-checkmark-border 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+
+    & input:checked ~ span:after {
+      display: block;
+    }
+    
   }
 
   & .common-to-do-item-desc {
@@ -33,7 +92,7 @@
 
     span {
       position: relative;
-      top: calc((#{$item-height} - #{$item-checkbox-size}) / 2);
+      top: calc((#{$item-height} - #{$item-checkbox-size}) / 2 - 2px);
       padding: {
         left: 5px;
       }

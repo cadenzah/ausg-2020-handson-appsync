@@ -10,12 +10,15 @@ $item-height: 60px;
 // ToDoItem.scss specific
 $item-checkbox-div-width: 30px;
 $item-checkbox-size: 15px;
+$item-checkmark-width: 5px; // left line
+$item-checkmark-height: 10px; // right line
+$item-checkmark-border: 2px;
 
 // color presets
 $color-primary: #7E7E7E;
 $color-default: #595959;
 $color-caution: #c94b68;
-$color-paper: rgb(242, 242, 242);
+$color-paper: #f2f2f2;
 $color-font: #2F2F2F;
 $color-placeholder: #898989;
 $color-box-shadow: #c1c1c1;
