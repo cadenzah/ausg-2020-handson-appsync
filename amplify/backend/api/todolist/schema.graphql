@@ -1,0 +1,11 @@
+enum Status {
+  DONE
+  PENDING
+}
+
+type Todo @model {
+  id: ID!
+  desc: String
+  status: Status!
+  date: String!
+}
