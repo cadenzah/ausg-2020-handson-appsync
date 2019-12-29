@@ -29,6 +29,14 @@ const MainContainer = (props) => {
     appActions.createTodo(desc)
   }
 
+  const handleUpdateTodo = (id, prevStatus) => {
+    appActions.updateTodo(id, prevStatus)
+  }
+
+  const handleDeleteTodo = (id) => {
+    appActions.deleteTodo(id)
+  }
+
   return (
     <PageWrapper>
       <ToDoWrapper>
@@ -40,6 +48,8 @@ const MainContainer = (props) => {
         />
         <ToDoList
           todoList={todoList}
+          handleUpdateTodo={handleUpdateTodo}
+          handleDeleteTodo={handleDeleteTodo}
         />
       </ToDoWrapper>
     </PageWrapper>

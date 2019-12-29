@@ -4,17 +4,14 @@ import uuid from 'uuid/v4'
 
 import {
   mutateCreateTodo,
+  mutateUpdateTodo,
+  mutateDeleteTodo,
   queryGetTodoList,
 } from '../../graphql'
 
 // #################### ACTION TYPES ###################
 // action for keyboard action
 const CHANGE_INPUT = 'app/CHANGE_INPUT'
-
-// actions for DB apis
-const CREATE_TODO = 'app/CREATE_TODO'
-const UPDATE_TODO = 'app/UPDATE_TODO'
-const DELETE_TODO = 'app/DELETE_TODO'
 
 // actions for app's status
 const GET_TODOLIST = 'app/GET_TODOLIST'
@@ -34,6 +31,9 @@ export const getTodoList = () => (dispatch) => {
     .then(({ data: { listTodos: { items } } }) => {
       dispatch(_getTodoList({ todoList: items }))
     })
+    .catch((e) => {
+      console.error(e)
+    })
 }
 
 // action for creating new todo
@@ -49,6 +49,39 @@ export const createTodo = (desc) => (dispatch) => {
     .then(() => {
       dispatch(changeInput({ key: 'todoDesc', value: '',}))
       dispatch(getTodoList())
+    })
+    .catch((e) => {
+      console.error(e)
+    })
+}
+
+// action for updating a todo (PENDING ↔︎ DONE)
+export const updateTodo = (id, prevStatus) => (dispatch) => {
+  API.graphql(graphqlOperation(mutateUpdateTodo, {
+    input: {
+      id: id,
+      status: (prevStatus === 'PENDING' ? 'DONE' : 'PENDING'),
+      date: new Date().getTime(),
+    }
+  }))
+    .then(() => {
+      dispatch(getTodoList())
+    })
+    .catch((e) => {
+      console.error(e)
+    })
+}
+
+// action for deleting a todo
+export const deleteTodo = (id) => (dispatch) => {
+  API.graphql(graphqlOperation(mutateDeleteTodo, {
+    input: { id: id }
+  }))
+    .then(() => {
+      dispatch(getTodoList())
+    })
+    .catch((e) => {
+      console.error(e)
     })
 }
 
