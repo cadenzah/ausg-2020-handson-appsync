@@ -1,11 +1,13 @@
 # ToDoList
 
+![How it looks](app.png)
+
 Simple React Todolist Application
 
 ## Features
 
 - Create a new todo
-- Update a todo (`'DONE'` or `PENDING`)
+- Update a todo (`'DONE'` or `'PENDING'`)
 - Delete a todo
 
 ## To be added (Soon)
