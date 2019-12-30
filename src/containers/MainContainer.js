@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -11,12 +11,22 @@ import ToDoList from '../components/common/ToDoList'
 import * as appActions from '../redux/modules/app'
 
 const MainContainer = (props) => {
+  const { appActions, todoDesc, todoList } = props
+
+  // get all todos when start-up
+  useEffect(() => {
+    appActions.getTodoList()
+  }, [])
   
   // handle keyboard input for attribute with provided key
   const handleChangeInput = key => event => {
-    props.appActions.changeInput({
+    appActions.changeInput({
       key, value: event.target.value
     })
+  }
+
+  const handleCreateTodo = (desc) => {
+    appActions.createTodo(desc)
   }
 
   return (
@@ -25,9 +35,12 @@ const MainContainer = (props) => {
         <Title>ToDoList</Title>
         <ToDoInput
           handleChangeInput={handleChangeInput}
-          todoDesc={props.todoDesc}
+          handleCreateTodo={handleCreateTodo}
+          todoDesc={todoDesc}
         />
-        <ToDoList />
+        <ToDoList
+          todoList={todoList}
+        />
       </ToDoWrapper>
     </PageWrapper>
   )
@@ -35,6 +48,7 @@ const MainContainer = (props) => {
 
 const mapStateToProps = ({ app }) => ({
   todoDesc: app.todoDesc,
+  todoList: app.todoList,
 })
 
 const mapDispatchToProps = (dispatch) => ({

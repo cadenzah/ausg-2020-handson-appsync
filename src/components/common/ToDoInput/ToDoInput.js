@@ -4,16 +4,22 @@ import './ToDoInput.scss'
 import Button from '../Button'
 
 const ToDoInput = (props) => {
-  const { taskDesc, handleChangeInput } = props
+  const { todoDesc, handleChangeInput, handleCreateTodo } = props
 
   return (
     <div className="common-to-do-input">
       <input
-        value={taskDesc}
+        value={todoDesc}
         placeholder="Type in a new task to do!"
-        onChange={handleChangeInput('taskDesc')}
+        autoCorrect="off"
+        autoCapitalize="off"
+        spellCheck="false"
+        onChange={handleChangeInput('todoDesc')}
       />
-      <Button buttonStyle="primary">
+      <Button
+        buttonStyle="primary"
+        handleClick={() => handleCreateTodo(todoDesc)}
+      >
         Add
       </Button>
     </div>
