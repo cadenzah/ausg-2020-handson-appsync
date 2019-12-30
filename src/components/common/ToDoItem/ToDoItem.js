@@ -4,26 +4,39 @@ import './ToDoItem.scss'
 import Button from '../Button'
 
 const ToDoItem = (props) => {
+  const { item, handleUpdateTodo, handleDeleteTodo } = props
+
+  const onClickCheckbox = (e) => {
+    // e.preventDefault()
+    handleUpdateTodo(item.id, item.status)
+  }
+
   return (
-    <div className={props.item.status === 'PENDING'
+    <div className={item.status === 'PENDING'
       ? `common-to-do-item`
       : `common-to-do-item done`
     }>
       <div className="common-to-do-item-checkbox">
-        <label htmlFor="to-do-checkbox">
+        <label htmlFor={item.id}>
           <input
-            id="to-do-checkbox"
+            id={item.id}
             type="checkbox"
-            value={props.item.id}
-            checked={props.item.status === 'DONE' ? "checked" : ""}
+            value={item.id}
+            checked={item.status === 'DONE' ? "checked" : ""}
+            onChange={onClickCheckbox}
           />
           <span />
         </label>
       </div>
       <div className="common-to-do-item-desc">
-        <span>{props.item.desc}</span>
+        <span>{item.desc}</span>
       </div>
-      <Button buttonStyle="caution">Delete</Button>
+      <Button
+        buttonStyle="caution"
+        handleClick={() => handleDeleteTodo(item.id)}
+      >
+        Delete
+      </Button>
     </div>
   )
 }

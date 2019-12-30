@@ -47,10 +47,46 @@ const _createTodo = createAction(CREATE_TODO, payload => ({ newTodo: payload.new
 export const createTodo = (desc) => (dispatch) => {
   API.createTodo(desc)
     .then(({ data: { createTodo: newTodo } }) => {
-      return dispatch(changeInput({ key: 'todoDesc', value: '', }))
+      return new Promise((resolve) => {
+        dispatch(changeInput({ key: 'todoDesc', value: '', }))
+          .then(() => {
+            resolve({ newTodo })
+          })
+      })
     })
-    .then(() => {
+    .then(({ newTodo }) => {
       dispatch(_createTodo({ newTodo }))
+    })
+    .catch((e) => {
+      console.error(e)
+    })
+}
+
+// action for modifying the updated todo's status
+const _updateTodo = createAction(UPDATE_TODO, payload => ({ id: payload.id, newStatus: payload.newStatus }))
+
+// action for updating a todo
+export const updateTodo = (id, prevStatus) => (dispatch) => {
+  API.updateTodo(id, prevStatus)
+    .then(({ data: { updateTodo } }) => {
+      dispatch(_updateTodo({
+        id: updateTodo.id,
+        newStatus: updateTodo.status,
+      }))
+    })
+    .catch((e) => {
+      console.error(e)
+    })
+}
+
+// action for eliminating the deleted todo
+const _deleteTodo = createAction(DELETE_TODO, payload => ({ id: payload.id }))
+
+// action for deleting a todo
+export const deleteTodo = (id) => (dispatch) => {
+  API.deleteTodo(id)
+    .then(({ data: { deleteTodo } }) => {
+      dispatch(_deleteTodo({ id: deleteTodo.id }))
     })
     .catch((e) => {
       console.error(e)
@@ -73,10 +109,29 @@ export default handleActions({
     ...state,
     todoList: action.payload.todoList,
   }),
-  [CREATE_TODO]: (state, action) => {
-    return ({
-      ...state,
-      todoList: state.todoList.concat(action.payload.newTodo),
-    })
-  },
+  [CREATE_TODO]: (state, action) => ({
+    ...state,
+    todoList: state.todoList.concat(action.payload.newTodo),
+  }),
+  [UPDATE_TODO]: (state, action) => ({
+    ...state,
+    todoList: state.todoList.map((todo) => {
+      // find the updated todo and change the status
+      if (todo.id === action.payload.id) {
+        todo.status = action.payload.newStatus
+      }
+      return todo
+    }),
+  }),
+  [DELETE_TODO]: (state, action) => ({
+    ...state,
+    todoList: state.todoList.filter((todo) => {
+      // exclude the deleted todo using payload's id
+      if (todo.id === action.payload.id) {
+        return false
+      } else {
+        return true
+      }
+    }),
+  }),
 }, initialState)

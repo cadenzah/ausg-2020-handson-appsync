@@ -4,7 +4,7 @@ import './ToDoList.scss'
 import ToDoItem from '../ToDoItem'
 
 const ToDoList = (props) => {
-  const { todoList } = props
+  const { todoList, handleUpdateTodo, handleDeleteTodo } = props
   
   // first, sort tasks to be displayed
   const todosInOrder = [
@@ -17,6 +17,8 @@ const ToDoList = (props) => {
       <ToDoItem
         item={todo}
         key={todo.id}
+        handleUpdateTodo={handleUpdateTodo}
+        handleDeleteTodo={handleDeleteTodo}
       />
     ))
   )
