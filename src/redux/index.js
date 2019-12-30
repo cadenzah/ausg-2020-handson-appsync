@@ -1,6 +1,6 @@
 // export the function's result
 // can be editted when ssr is used
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducer from './modules'
 import reduxThunk from 'redux-thunk'
 
