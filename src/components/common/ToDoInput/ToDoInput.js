@@ -11,6 +11,9 @@ const ToDoInput = (props) => {
       <input
         value={todoDesc}
         placeholder="Type in a new task to do!"
+        autoCorrect="off"
+        autoCapitalize="off"
+        spellCheck="false"
         onChange={handleChangeInput('todoDesc')}
       />
       <Button

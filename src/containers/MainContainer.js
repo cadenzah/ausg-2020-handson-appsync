@@ -12,6 +12,11 @@ import * as appActions from '../redux/modules/app'
 
 const MainContainer = (props) => {
   const { appActions, todoDesc, todoList } = props
+
+  // get all todos when start-up
+  useEffect(() => {
+    appActions.getTodoList()
+  }, [])
   
   // get all todos when start-up
   useEffect(() => {

@@ -6,6 +6,7 @@ const Button = (props) => {
     e.preventDefault()
     props.handleClick()
   }
+  
   return (
     <div className={
       props.buttonStyle === 'primary' ? `common-button primary` :

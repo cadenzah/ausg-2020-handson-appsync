@@ -1,8 +1,6 @@
 import React from 'react'
 import './ToDoList.scss'
 
-import todos from '../../../utils/tasks'
-
 import ToDoItem from '../ToDoItem'
 
 const ToDoList = (props) => {
@@ -10,7 +8,7 @@ const ToDoList = (props) => {
   
   // first, sort tasks to be displayed
   if (todoList.length === 0) {
-    return (<div>로딩!</div>)
+    return (<div>Just a moment...</div>)
   }
 
   const todosInOrder = [
