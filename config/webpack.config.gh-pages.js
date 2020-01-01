@@ -11,19 +11,18 @@ module.exports = (env) => {
 
   // file paths
   const configPath = path.join(__dirname)
-  const buildPath = `${configPath}/../build`
+  const buildPath = `${configPath}/../docs`
 
   const config = {
     entry: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.js"],
     output: {
-      publicPath: '/',
+      publicPath: './',
       filename: 'js/[name].[chunkhash].js',
       path: buildPath,
     },
     mode: env && env.MODE === 'production' ? 'production' : 'development',
     optimization: {
       runtimeChunk: 'single',
-  
       splitChunks: {
         cacheGroups: {
           vendor: {
@@ -46,12 +45,6 @@ module.exports = (env) => {
           use: ['babel-loader']
         }
       ]
-    },
-    devServer: {
-      contentBase: path.join(__dirname, 'build'),
-      compress: true,
-      port: 3000,
-      historyApiFallback: true
     },
     plugins: [
       new CleanWebpackPlugin(),

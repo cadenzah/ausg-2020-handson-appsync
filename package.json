@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config ./config/webpack.config.js --open",
     "build": "npx webpack --config ./config/webpack.config.js --env.MODE=production",
+    "gh-pages": "npx webpack --config ./config/webpack.config.gh-pages.js --env.MODE=production",
     "storybook": "start-storybook"
   },
   "author": "cadenzah",
