@@ -20,7 +20,7 @@ module.exports = (env) => {
       filename: 'js/[name].[chunkhash].js',
       path: buildPath,
     },
-    mode: env && env.MODE === 'production' ? 'production' : 'development',
+    mode: 'production',
     optimization: {
       runtimeChunk: 'single',
   
@@ -58,7 +58,9 @@ module.exports = (env) => {
       new HTMLWebpackPlugin({
         template: './public/index.html',
         minify: {
-          collapseWhitespace: true
+          collapseWhitespace: true,
+          removeComments: true,
+          minifyJS: true,
         },
         hash: true
       }),

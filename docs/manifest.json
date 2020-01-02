@@ -1,7 +1,8 @@
 {
-  "main.js": "./js/main.3e1d668ec410be5eb9ff.js",
-  "runtime.js": "./js/runtime.c5be4c7d857e437479e0.js",
-  "vendors.js": "./js/vendors.acc70b89508a82d81051.js",
-  "js/3.b629a5221af495fa9464.js": "./js/3.b629a5221af495fa9464.js",
+  "js/0.a4697a2956352436d66b.js": "./js/0.a4697a2956352436d66b.js",
+  "main.js": "./js/main.94ba1abbcc68e5489a4d.js",
+  "runtime.js": "./js/runtime.52e536ac600e705b2753.js",
+  "vendors.js": "./js/vendors.2251dc162151bd36e961.js",
+  "404.html": "./404.html",
   "index.html": "./index.html"
 }
