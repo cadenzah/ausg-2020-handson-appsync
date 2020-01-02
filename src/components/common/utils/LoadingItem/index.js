@@ -1,2 +1,2 @@
-import Loading from './Loading'
-export default Loading
+import LoadingItem from './LoadingItem'
+export default LoadingItem
