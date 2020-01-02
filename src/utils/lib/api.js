@@ -9,7 +9,11 @@ const getTodoList = () => {
   // return current dataset
   return new Promise((resolve, reject) => {
     const result = { data: { listTodos: { items: _todos } } }
-    resolve(result)
+    // 별도 유틸 함수로 분리하자
+    // 실제 프로덕션에서는 미사용
+    setTimeout(() => {
+      resolve(result)
+    }, 1500)
   })
 }
 

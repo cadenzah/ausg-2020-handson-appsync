@@ -13,7 +13,7 @@ const actions = {
 
 const item = {
   id: 1,
-  desc: 'Now Loading Awesome Todos!',
+  desc: 'Something you have to do',
   status: 'PENDING',
   date: '1577706674964',
 }
