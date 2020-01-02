@@ -6,10 +6,12 @@ import ToDoItem from '../ToDoItem'
 const ToDoList = (props) => {
   const { todoList, handleUpdateTodo, handleDeleteTodo } = props
   
-  // first, sort tasks to be displayed
+  // first, sort todos to be displayed
+  // SORT CONDITION 1: status
+  // SORT CONDITION 2: created time
   const todosInOrder = [
-    ...todoList.filter(todo => todo.status !== 'DONE'),
-    ...todoList.filter(todo => todo.status === 'DONE'),
+    ...todoList.filter(todo => todo.status !== 'DONE').sort((todo1, todo2) => todo2.date - todo1.date),
+    ...todoList.filter(todo => todo.status === 'DONE').sort((todo1, todo2) => todo2.date - todo1.date),
   ]
 
   return (
