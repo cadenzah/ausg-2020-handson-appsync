@@ -11,28 +11,17 @@ module.exports = (env) => {
 
   // file paths
   const configPath = path.join(__dirname)
-  const buildPath = `${configPath}/../docs`
+  const buildPath = `${configPath}/../build`
 
   const config = {
     entry: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.js"],
     output: {
-      publicPath: './',
-      filename: 'js/[name].[chunkhash].js',
-      path: buildPath,
+      publicPath: '/',
+      filename: 'js/[name].js',
+      path: buildPath
     },
-    mode: env && env.MODE === 'production' ? 'production' : 'development',
-    optimization: {
-      runtimeChunk: 'single',
-      splitChunks: {
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all'
-          }
-        }
-      }
-    },
+    mode: 'development',
+    devtool: 'inline-source-map',
     module: {
       rules: [
         {
@@ -46,34 +35,26 @@ module.exports = (env) => {
         }
       ]
     },
+    devServer: {
+      contentBase: path.join(__dirname, 'build'),
+      compress: true,
+      port: 3000,
+      historyApiFallback: true,
+      hot: true,
+    },
     plugins: [
       new CleanWebpackPlugin(),
       new HTMLWebpackPlugin({
-        inject: true,
-        filename: 'index.html',
-        template: './public/gh-pages/index.ejs',
-        basename: envKeys.raw.REPO_URL[envKeys.raw.REPO_URL.length - 1] === '/' ? envKeys.raw.REPO_URL : `${envKeys.raw.REPO_URL}/`,
+        template: './public/index.html',
         minify: {
-          collapseWhitespace: true,
-          removeComments: true,
-          minifyJS: true,
-        },
-        hash: true
-      }),
-      new HTMLWebpackPlugin({
-        inject: false,
-        filename: '404.html',
-        template: './public/gh-pages/404.html',
-        minify: {
-          collapseWhitespace: true,
-          removeComments: true,
-          minifyJS: true,
+          collapseWhitespace: true
         },
         hash: true
       }),
       new ManifestPlugin({
         fileName: 'manifest.json'
       }),
+      new webpack.HotModuleReplacementPlugin(),
       new CopyWebpackPlugin([
       //   {
       //     from: 'public/icons',
