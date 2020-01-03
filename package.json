@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open",
-    "build": "npx webpack --env.mode=production",
+    "dev": "webpack-dev-server --config ./config/webpack.config.dev.js --open",
+    "build": "npx webpack --config ./config/webpack.config.js",
+    "gh-pages": "npx webpack --config ./config/webpack.config.gh-pages.js",
     "storybook": "start-storybook"
   },
   "author": "cadenzah",

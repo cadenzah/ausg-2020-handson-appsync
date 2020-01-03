@@ -2,6 +2,11 @@ import { createAction, handleActions } from 'redux-actions'
 import API from '../../utils/lib/api-appsync'
 
 // #################### ACTION TYPES ###################
+
+// action for changing app's state
+// const ON_LOADING = 'app/ON_LOADING'
+const ON_COMPLETE = 'app/ON_COMPLETE'
+
 // action for keyboard action
 const CHANGE_INPUT = 'app/CHANGE_INPUT'
 
@@ -15,6 +20,9 @@ const GET_TODOLIST = 'app/GET_TODOLIST'
 
 // ############ ACTION GENERATOR FUNCTIONS #############
 // ## NAMES WILL BE RE-USED WITH `bindActionCreators` ##
+
+// action for completing data loading task
+export const onComplete = createAction(ON_COMPLETE, (payload = {}) => payload)
 
 // action for keyboard input
 const _changeInput = createAction(CHANGE_INPUT, payload => ({ key: payload.key, value: payload.value }))
@@ -33,7 +41,13 @@ const _getTodoList = createAction(GET_TODOLIST, payload => ({
 export const getTodoList = () => (dispatch) => {
   API.getTodoList()
     .then(({ data: { listTodos: { items } } }) => {
-      dispatch(_getTodoList({ todoList: items }))
+      return new Promise((resolve) => {
+        dispatch(_getTodoList({ todoList: items }))
+        resolve()
+      })
+    })
+    .then(() => {
+      dispatch(onComplete())
     })
     .catch((e) => {
       console.error(e)
@@ -95,12 +109,17 @@ export const deleteTodo = (id) => (dispatch) => {
 
 // ######## DEFAULT STATE FOR THIS SLICE STATE #########
 const initialState = {
+  isLoading: true,
   todoDesc: '',
   todoList: [],
 }
 
 // ########### REDUCER FOR THIS SLICE STATE ############
 export default handleActions({
+  [ON_COMPLETE]: (state, action) => ({
+    ...state,
+    isLoading: !state.isLoading,
+  }),
   [CHANGE_INPUT]: (state, action) => ({
     ...state,
     [action.payload.key]: action.payload.value,
