@@ -1,5 +1,5 @@
 import { createAction, handleActions } from 'redux-actions'
-import API from '../../utils/lib/api-appssync'
+import API from '../../utils/lib/api-appsync'
 
 // #################### ACTION TYPES ###################
 
@@ -9,6 +9,11 @@ const ON_COMPLETE = 'app/ON_COMPLETE'
 
 // action for keyboard action
 const CHANGE_INPUT = 'app/CHANGE_INPUT'
+
+// actions for DB apis
+const CREATE_TODO = 'app/CREATE_TODO'
+const UPDATE_TODO = 'app/UPDATE_TODO'
+const DELETE_TODO = 'app/DELETE_TODO'
 
 // actions for app's status
 const GET_TODOLIST = 'app/GET_TODOLIST'
