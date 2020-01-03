@@ -13,7 +13,7 @@ import config from './aws-exports'
 Amplify.configure(config)
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.REPO_NAME ? `/${process.env.REPO_NAME}` : ""}>
     <Provider store={store}>
       <App />
     </Provider>

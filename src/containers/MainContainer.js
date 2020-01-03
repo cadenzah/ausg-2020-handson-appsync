@@ -11,13 +11,8 @@ import ToDoList from '../components/common/ToDoList'
 import * as appActions from '../redux/modules/app'
 
 const MainContainer = (props) => {
-  const { appActions, todoDesc, todoList } = props
+  const { appActions, isLoading, todoDesc, todoList } = props
 
-  // get all todos when start-up
-  useEffect(() => {
-    appActions.getTodoList()
-  }, [])
-  
   // get all todos when start-up
   useEffect(() => {
     appActions.getTodoList()
@@ -52,6 +47,7 @@ const MainContainer = (props) => {
           todoDesc={todoDesc}
         />
         <ToDoList
+          isLoading={isLoading}
           todoList={todoList}
           handleUpdateTodo={handleUpdateTodo}
           handleDeleteTodo={handleDeleteTodo}
@@ -62,6 +58,7 @@ const MainContainer = (props) => {
 }
 
 const mapStateToProps = ({ app }) => ({
+  isLoading: app.isLoading,
   todoDesc: app.todoDesc,
   todoList: app.todoList,
 })
