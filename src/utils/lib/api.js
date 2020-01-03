@@ -1,4 +1,5 @@
 import uuid from 'uuid/v4'
+import postpone from './postpone'
 
 let { default: todos } = require('../data/tasks')
 
@@ -9,7 +10,9 @@ const getTodoList = () => {
   // return current dataset
   return new Promise((resolve, reject) => {
     const result = { data: { listTodos: { items: _todos } } }
-    resolve(result)
+
+    // don't use in production
+    postpone(1.5, () => resolve(result))
   })
 }
 
