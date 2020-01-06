@@ -1,37 +1,10 @@
-# ToDoList
+# AWS AppSync로 만드는 서버리스 GraphQL 서비스 (ft. AWS Amplify)
 
-[🎢 Try the demo here](https://cadenzah.github.io/todolist-react)
+AWS AppSync는 AWS에서 제공하는 관리형 GraphQL 서비스입니다. AppSync를 사용하면 Database API를 편리하게 제작하여 사용할 수 있습니다. 이번 핸즈온에서는 AppSync를 사용하여 GraphQL API를 만들고, React 어플리케이션에서 데이터베이스에 접근할 수 있도록 연동하는 실습을 진행합니다.
 
-![How it looks](app.png)
-
-Simple React Todolist Application
-
-## Features
-
-- Create a new todo
-- Update a todo (`'DONE'` or `'PENDING'`)
-- Delete a todo
-- Loading sequence for initial data fetching
-
-## How to run locally
-
-1. Clone the repository
-2. `npm install`
-3. `npm run dev`
-
-> **NOTE**: Currently, dummy data is included in the project, so it is ready to run without any DB!
-
-## How to deploy on GitHub Page
-
-1. Add following values in `.env` file (`/config/env/.env`):
-
-```
-# .env
-REPO_NAME=<GITHUB_REPOSITORY_NAME>
-REPO_URL=https://<GITHUB_ID>.github.io/<GITHUB_REPOSITORY_NAME>
-```
-
-2. Run `npm run gh-pages`
-3. Include the output `/docs` in the `master` branch of your project
-4. `git push origin master`
-5. Go to your repository page, navigate into [Settings → GitHub Pages → Source], and choose **`master branch /docs folder`**.
+## Index
+1. [핸즈온 소개](https://github.com/cadenzah/ausg-2020-handson-appsync/blob/master/readme/handson/01.introduction.md)
+2. [환경 설정](https://github.com/cadenzah/ausg-2020-handson-appsync/blob/master/readme/handson/02.settings.md)
+3. [React 프로젝트 및 Amplify 설정](https://github.com/cadenzah/ausg-2020-handson-appsync/blob/master/readme/handson/03.react.md)
+4. [AWS Amplify 연동](https://github.com/cadenzah/ausg-2020-handson-appsync/blob/master/readme/handson/04.amplify.md)
+5. [마무리](https://github.com/cadenzah/ausg-2020-handson-appsync/blob/master/readme/handson/05.conclusion.md)

@@ -10,7 +10,8 @@ const getTodoList = () => {
   // return current dataset
   return new Promise((resolve, reject) => {
     const result = { data: { listTodos: { items: _todos } } }
-    resolve(result)
+    
+    postpone(1.5, () => resolve(result))
   })
 }
 
