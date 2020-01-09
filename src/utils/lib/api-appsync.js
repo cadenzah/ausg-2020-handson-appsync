@@ -1,12 +1,10 @@
 import { API, graphqlOperation } from 'aws-amplify'
 import uuid from 'uuid/v4'
 
-import {
-  mutateCreateTodo,
-  mutateUpdateTodo,
-  mutateDeleteTodo,
-  queryGetTodoList,
-} from '../../graphql'
+import mutateCreateTodo from '../../queries/createTodo'
+import mutateUpdateTodo from '../../queries/updateTodo'
+import mutateDeleteTodo from '../../queries/deleteTodo'
+import queryGetTodoList from '../../queries/getTodoList'
 
 const getTodoList = () => {
   return API.graphql(graphqlOperation(queryGetTodoList))
