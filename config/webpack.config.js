@@ -11,7 +11,7 @@ module.exports = (env) => {
 
   // file paths
   const configPath = path.join(__dirname)
-  const buildPath = `${configPath}/../build`
+  const buildPath = path.join(configPath, '..', 'build')
 
   const config = {
     entry: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.js"],
@@ -46,12 +46,6 @@ module.exports = (env) => {
           use: ['babel-loader']
         }
       ]
-    },
-    devServer: {
-      contentBase: path.join(__dirname, 'build'),
-      compress: true,
-      port: 3000,
-      historyApiFallback: true
     },
     plugins: [
       new CleanWebpackPlugin(),
