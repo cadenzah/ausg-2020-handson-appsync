@@ -11,7 +11,7 @@ module.exports = (env) => {
 
   // file paths
   const configPath = path.join(__dirname)
-  const buildPath = `${configPath}/../build`
+  const buildPath = path.join(configPath, '..', 'build')
 
   const config = {
     entry: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.js"],
@@ -36,7 +36,7 @@ module.exports = (env) => {
       ]
     },
     devServer: {
-      contentBase: path.join(__dirname, 'build'),
+      contentBase: buildPath,
       compress: true,
       port: 3000,
       historyApiFallback: true,

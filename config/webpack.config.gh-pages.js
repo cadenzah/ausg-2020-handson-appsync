@@ -11,7 +11,7 @@ module.exports = (env) => {
 
   // file paths
   const configPath = path.join(__dirname)
-  const buildPath = `${configPath}/../docs`
+  const buildPath = path.join(configPath, '..', 'docs')
 
   const config = {
     entry: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.js"],
