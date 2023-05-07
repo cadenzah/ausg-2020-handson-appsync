@@ -36,7 +36,7 @@
     "webpack-manifest-plugin": "^2.0.4"
   },
   "dependencies": {
-    "aws-amplify": "^2.2.1",
+    "aws-amplify": "^5.2.0",
     "react": "^16.11.0",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.3",
